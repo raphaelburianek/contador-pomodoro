@@ -11,21 +11,26 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+
     <!--meu css externo-->
     <link rel="stylesheet" href="./style.css" />
+
     <!--Font Awesome-->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
     />
+
     <!--icone-->
     <link rel="icon" href="./img/logo.png" type="image/png" />
+
     <title>Timer Pomodoro</title>
   </head>
+
   <body class="bg-dark">
     <!--Menu-->
     <nav class="navbar navbar-expand-lg navbar-light bg-danger">
-      <a class="navbar-brand fw-bold text-white" href="index.html"
+      <a class="navbar-brand font-weight-bold text-white" href="index.html"
         >Timer Pomodoro</a
       >
 
@@ -33,7 +38,7 @@
         <a>
           <i
             class="fa fa-pause text-white"
-            style="font-size: 25pt"
+            style="font-size: 25pt; display: none"
             aria-hidden="true"
           ></i>
         </a>
@@ -41,7 +46,7 @@
         <a>
           <i
             class="fa fa-play text-white"
-            style="font-size: 25pt"
+            style="font-size: 25pt; display: none"
             aria-hidden="true"
           ></i>
         </a>
@@ -53,29 +58,68 @@
     <!--Container-->
 
     <div class="container">
-      <div class="row d-flex justify-content-center">
+      <div class="row d-flex justify-content-center mt-5 mb-5">
         <div class="col-md-8">
           <!-- Config -->
 
           <div id="config" class="row d-flex justify-content-center">
             <div class="col">
+              <!-- Imputs-->
               <div class="row d-flex justify-content-center">
-                <div class="col-md-3"></div>
+                <div class="col-md-3 d-flex justify-content-center"></div>
                 <div class="form-group">
-                  <label for="acao">Ação</label>
-                  <input type="number" class="form-control" id="acao" />
+                  <label
+                    class="d-flex justify-content-center text-white font-weight-bold"
+                    for="acao"
+                    >Ação</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control form-control-lg bg-dark border-0 shadow text-white"
+                    id="acao"
+                  />
                 </div>
-                <div class="col-md-3"></div>
+                <div class="col-md-3 d-flex justify-content-center"></div>
                 <div class="form-group">
-                  <label for="pausa">Pausa</label>
-                  <input type="number" class="form-control" id="acao" />
+                  <label
+                    class="d-flex justify-content-center text-white font-weight-bold"
+                    for="pausa"
+                    >Pausa</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control form-control-lg bg-dark border-0 shadow text-white"
+                    id="acao"
+                  />
                 </div>
-                <div class="col-md-3"></div>
+                <div class="col-md-3 d-flex justify-content-center"></div>
                 <div class="form-group">
-                  <label for="sessoes">Sessões</label>
-                  <input type="number" class="form-control" id="sessoes" />
+                  <label
+                    class="d-flex justify-content-center text-white font-weight-bold"
+                    for="sessoes"
+                    >Sessões</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control form-control-lg bg-dark border-0 shadow text-white"
+                    id="sessoes"
+                  />
                 </div>
               </div>
+
+              <!-- /Imputs-->
+
+              <!-- Botão iniciar-->
+
+              <div class="row mt-5 mb-5 d-flex justify-content-center">
+                <div class="col-md-9">
+                  <button class="btn btn-danger shadow btn-block">
+                    Iniciar
+                  </button>
+                </div>
+              </div>
+
+              <!-- / Botão iniciar-->
             </div>
           </div>
 
