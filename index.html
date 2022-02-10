@@ -1,208 +1,174 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--css do Bootstrap-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
 
-    <!--meu css externo-->
-    <link rel="stylesheet" href="./style.css" />
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--Font Awesome-->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
-    />
+   <!-- CSS do Bootstrap -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <!--icone-->
-    <link rel="icon" href="./img/logo.png" type="image/png" />
+   <!-- meu CSS externo -->
+   <link rel="stylesheet" href="./style.css">
 
-    <title>Timer Pomodoro</title>
-  </head>
+   <!-- Font Awesome -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <body class="bg-dark">
-    <!--Menu-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-danger">
-      <a class="navbar-brand font-weight-bold text-white" href="index.html"
-        >Timer Pomodoro</a
-      >
+   <!-- icone -->
+   <link rel="icon" href="./img/logo.png" type="image/png">
+
+   <title>Timer Pomodoro</title>
+</head>
+
+<body class="bg-dark">
+
+   <!-- Menu -->
+   <nav class="navbar navbar-expand-lg navbar-light bg-danger">
+      <a class="navbar-brand font-weight-bold text-white" href="index.html">Timer Pomodoro</a>
 
       <div class="ml-auto">
-        <a>
-          <i
-            id="pause"
-            class="fa fa-pause text-white"
-            style="font-size: 25pt; display: none"
-            aria-hidden="true"
-          ></i>
-        </a>
+         <a onclick="pausar()">
+            <i id="pause" class="fa fa-pause text-white" style="font-size: 25pt; display: none;" aria-hidden="true"></i>
+         </a>
 
-        <a>
-          <i
-            id="play"
-            class="fa fa-play text-white"
-            style="font-size: 25pt; display: none"
-            aria-hidden="true"
-          ></i>
-        </a>
-        <audio id="lofi" src="./audio/lo-fi.mp3" type="audio/mpeg"></audio>
+         <a onclick='executar()'>
+            <i id='play' class="fa fa-play text-white" style="font-size: 25pt; display: none;" aria-hidden="true"></i>
+         </a>
+
+         <audio id="lofi" src="./audio/lo-fi.mp3" type="audio/mpeg"></audio>
       </div>
-    </nav>
-    <!--/menu-->
 
-    <!--Container-->
+   </nav>
+   <!-- /Menu -->
 
-    <div class="container">
+   <!-- Container -->
+
+   <div class="container">
+
       <!-- Config -->
 
       <div class="row d-flex justify-content-center mt-5 mb-5">
-        <div class="col-md-8">
-          <div id="config" class="row d-flex justify-content-center">
-            <div class="col">
-              <!-- Imputs-->
-              <div class="row d-flex justify-content-center">
-                <div class="col-md-3 d-flex justify-content-center"></div>
-                <div class="form-group">
-                  <label
-                    class="d-flex justify-content-center text-white font-weight-bold"
-                    for="acao"
-                    >Ação</label
-                  >
-                  <input
-                    type="number"
-                    class="form-control form-control-lg bg-dark border-0 shadow text-white"
-                    id="acao"
-                  />
-                  <small class="text-danger" id="erro-acao"></small>
-                </div>
-                <div class="col-md-3 d-flex justify-content-center"></div>
-                <div class="form-group">
-                  <label
-                    class="d-flex justify-content-center text-white font-weight-bold"
-                    for="pausa"
-                    >Pausa</label
-                  >
-                  <input
-                    type="number"
-                    class="form-control form-control-lg bg-dark border-0 shadow text-white"
-                    id="pausa"
-                  />
-                  <small class="text-danger" id="erro-pausa"></small>
-                </div>
-                <div class="col-md-3 d-flex justify-content-center"></div>
-                <div class="form-group">
-                  <label
-                    class="d-flex justify-content-center text-white font-weight-bold"
-                    for="sessoes"
-                    >Sessões</label
-                  >
-                  <input
-                    type="number"
-                    class="form-control form-control-lg bg-dark border-0 shadow text-white"
-                    id="sessoes"
-                  />
-                  <small class="text-danger" id="erro-sessoes"></small>
-                </div>
-              </div>
 
-              <!-- /Imputs-->
+         <div class="col-md-8">
 
-              <!-- Botão iniciar-->
 
-              <div class="row mt-5 mb-5 d-flex justify-content-center">
-                <div class="col-md-9">
-                  <button
-                    onclick="iniciar"
-                    class="btn btn-danger shadow btn-block"
-                  >
-                    Iniciar
-                  </button>
-                </div>
-              </div>
+            <div id="config" class="row d-flex justify-content-center">
 
-              <!-- / Botão iniciar-->
+               <div class="col">
+
+                  <!-- Inputs -->
+                  <div class="row d-flex justify-content-center">
+                     <div class="col-md-3 d-flex justify-content-center">
+                        <div class="form-group">
+                           <label class="d-flex justify-content-center text-white font-weight-bold"
+                              for="acao">Ação</label>
+                           <input type="number" class="form-control form-control-lg bg-dark border-0 shadow text-white"
+                              id="acao">
+                           <small class="text-danger" id='erro_acao'></small>
+                        </div>
+                     </div>
+                     <div class="col-md-3 d-flex justify-content-center">
+                        <div class="form-group">
+                           <label class="d-flex justify-content-center text-white font-weight-bold"
+                              for="pausa">Pausa</label>
+                           <input type="number" class="form-control form-control-lg bg-dark border-0 shadow text-white"
+                              id="pausa">
+                           <small class="text-danger" id='erro_pausa'></small>
+                        </div>
+                     </div>
+                     <div class="col-md-3 d-flex justify-content-center">
+                        <div class="form-group">
+                           <label class="d-flex justify-content-center text-white font-weight-bold"
+                              for="sessoes">Sessões</label>
+                           <input type="number" class="form-control form-control-lg bg-dark border-0 shadow text-white"
+                              id="sessoes">
+                           <small class="text-danger" id='erro_sessoes'></small>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Inputs -->
+
+                  <!-- Botão iniciar -->
+
+                  <div class="row mt-5 mb-5 d-flex justify-content-center">
+                     <div class="col-md-9">
+                        <button onclick="iniciar()" class="btn btn-danger shadow btn-lg btn-block">Iniciar</button>
+                     </div>
+                  </div>
+
+                  <!-- /Botão iniciar -->
+
+               </div>
+
             </div>
-          </div>
-        </div>
+
+         </div>
+
       </div>
-      <!-- /Config -->
+      <!-- /config -->
 
       <!-- Timer -->
 
-      <div
-        id="timer"
-        class="mt-o d-flex justify-content-center"
-        style="display: none"
-      >
-        <div class="row mb-3">
-          <div class="col">
-            <h3 id="title" class="text-center"></h3>
-          </div>
-        </div>
+      <div id="timer" class="mt-0 d-flex justify-content-center">
 
-        <div class="row shadow time">
-          <div class="col-5 p-0">
-            <h2 id="minutes_ok"></h2>
-          </div>
-          <div class="col-1 p-0 d-flex justify-content-center">
-            <h2>:</h2>
-          </div>
-          <div class="col-5 pl-0">
-            <h2 id="seconds_ok"></h2>
-          </div>
-        </div>
+         <div class="row mb-3">
+            <div class="col">
+               <h3 id='title' class="text-center"></h3>
+            </div>
+         </div>
 
-        <div class="row mb-3">
-          <div class="col">
-            <h3 id="title_sessao" class="text-center text-secondary"></h3>
-          </div>
-        </div>
+         <!-- Relogio -->
+         <div class="row shadow time">
+            <div class="col-5 p-0 ">
+               <h2 id="minutes_ok"></h2>
+            </div>
+            <div class="col-1 p-0 d-flex justify-content-center">
+               <h2>:</h2>
+            </div>
+            <div class="col-5 pl-0">
+               <h2 id="seconds_ok"></h2>
+            </div>
+         </div>
+         <!-- /Relogio -->
+
+         <div class="row mt-5">
+            <div class="col">
+               <h3 id='title_sessao' class="text-center text-secondary"></h3>
+            </div>
+         </div>
+
       </div>
-
-      <!-- /timer-->
+      <!-- /Timer -->
 
       <!-- Finalização -->
-
-      <div id="fim" style="display: none">
-        <h1 class="text-success text-center">
-          Parabéns! Você finalizou suas tarefas.
-        </h1>
-        <div class="row mt-5 d-flex justify-content-center">
-          <div class="col-md-9 d-flex justify-content-center">
-            <a href="./index.html" class="btn btn-danger shadow btn-lg"
-              >Inicio</a
-            >
-          </div>
-        </div>
+      <div id="fim" style="display: none;">
+         <h1 class="text-success text-center">Parabéns! Você finalizou suas tarefas.</h1>
+         <div class="row mt-5 mb-5 d-flex justify-content-center">
+            <div class="col-md-9 d-flex justify-content-center">
+               <a href="./index.html" class="btn btn-danger shadow btn-lg">Inicio</a>
+            </div>
+         </div>
       </div>
-
       <!-- /Finalização -->
-    </div>
 
-    <!--/Container-->
 
-    <script src="./script.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+   </div>
+   <!-- /Container -->
+
+
+
+   <script src="./script.js"></script>
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
+</body>
+
 </html>
